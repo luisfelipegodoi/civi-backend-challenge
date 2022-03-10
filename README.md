@@ -22,7 +22,7 @@ git config --global url."git@github.com:".insteadOf "https://github.com/"
 # Crie o arquivo .env com base no arquivo de exemplo para carregar as variaveis de ambiente
 
 # Baixe as dependências do projeto
-$ go mod vendor
+$ make deps
 ```
 
 ### Se for utilizar docker
