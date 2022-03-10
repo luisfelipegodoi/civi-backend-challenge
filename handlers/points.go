@@ -4,7 +4,6 @@ import (
 	"civi-backend-challenge/models"
 	"civi-backend-challenge/services"
 	"errors"
-	"fmt"
 	"github.com/gin-gonic/gin"
 	"net/http"
 	"strconv"
@@ -19,7 +18,9 @@ type handler struct {
 }
 
 func New(s services.PointsService) *handler {
-	return &handler{}
+	return &handler{
+		pointsService: s,
+	}
 }
 
 func (h *handler) GetPoints(c *gin.Context) {
@@ -55,8 +56,9 @@ func (h *handler) GetPoints(c *gin.Context) {
 		return
 	}
 
-	fmt.Println(x, y, distance)
-	c.JSON(http.StatusOK, "foi")
+	points := h.pointsService.GetPoints(x, y, distance)
+
+	c.JSON(http.StatusOK, &points)
 }
 
 func isInteger(param string) (int, bool, error) {
