@@ -20,3 +20,6 @@ civi-backend-challenge
 
 # Files
 .env
+
+# SO garbage or cache
+*.DS_Store
