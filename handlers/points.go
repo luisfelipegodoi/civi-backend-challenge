@@ -58,6 +58,13 @@ func (h *handler) GetPoints(c *gin.Context) {
 
 	points := h.pointsService.GetPoints(x, y, distance)
 
+	if points == nil {
+		c.JSON(http.StatusNotFound, map[string]string{
+			"Message": "there's no result for show. the parameters don't return any results",
+		})
+		return
+	}
+
 	c.JSON(http.StatusOK, &points)
 }
 
