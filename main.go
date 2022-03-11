@@ -30,9 +30,9 @@ func main() {
 	}
 
 	pointsService := services.NewPointService(pointsFile)
-	handlers := handlers.New(pointsService)
+	h := handlers.New(pointsService)
 
-	initRouters := routers.InitRouter(handlers)
+	initRouters := routers.InitRouter(h)
 
 	server := &http.Server{
 		Addr:    endpoint,
