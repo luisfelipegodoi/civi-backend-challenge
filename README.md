@@ -51,3 +51,22 @@ $ make run
 # Executa o comando para executar os testes unitários
 make run-tests
 ```
+
+### Estrutura do projeto
+```
+├── data/
+│   ├── points.json
+├── handlers/
+│   ├── points.go
+├── models/
+│   ├── error.go
+│   ├── points.go
+├── routers/
+│   ├── router.go
+├── services/
+│   ├── points.go
+│
+└── main.go
+└── Makefile
+└── README.md
+```
