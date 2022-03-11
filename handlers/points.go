@@ -23,6 +23,12 @@ func New(s services.PointsService) *handler {
 	}
 }
 
+// GetPoints godoc
+// @Summary      Get points
+// @Description  get points
+// @Produce      json
+// @Params       x, y and distance
+// @Router       /api/v1/points [get]
 func (h *handler) GetPoints(c *gin.Context) {
 	queryParam := c.Request.URL.Query()
 

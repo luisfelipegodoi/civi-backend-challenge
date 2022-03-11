@@ -1,0 +1,23 @@
+{
+    "swagger": "2.0",
+    "info": {
+        "description": "web api para o desafio backend",
+        "title": "civi-backend-challange",
+        "contact": {},
+        "version": "1.0"
+    },
+    "host": "localhost:8090",
+    "basePath": "/api/v1",
+    "paths": {
+        "/api/v1/points": {
+            "get": {
+                "description": "get points",
+                "produces": [
+                    "application/json"
+                ],
+                "summary": "Get points",
+                "responses": {}
+            }
+        }
+    }
+}

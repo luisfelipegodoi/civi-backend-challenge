@@ -21,6 +21,12 @@ func init() {
 	fmt.Println(fmt.Sprintf("initializing service on port:%s", port))
 }
 
+// @title           civi-backend-challange
+// @version         1.0
+// @description     web api para o desafio backend
+
+// @host      localhost:8090
+// @BasePath  /api/v1
 func main() {
 	endpoint := fmt.Sprintf(":%s", port)
 

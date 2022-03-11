@@ -1,0 +1,16 @@
+basePath: /api/v1
+host: localhost:8090
+info:
+  contact: {}
+  description: web api para o desafio backend
+  title: civi-backend-challange
+  version: "1.0"
+paths:
+  /api/v1/points:
+    get:
+      description: get points
+      produces:
+      - application/json
+      responses: {}
+      summary: Get points
+swagger: "2.0"
