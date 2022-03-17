@@ -34,7 +34,8 @@ $ systemctl start docker
 $ sudo docker ps -a
 
 # Inicie o container específico
-$ docker start civi-backend-challenge
+$ docker build . -t go-dock
+$ docker run -d -p 8000:8000 go-dock
 ```
 
 ### Inicializando
@@ -50,6 +51,11 @@ $ make run
 ```bash
 # Executa o comando para executar os testes unitários
 make run-tests
+```
+
+### Swagger
+```bash
+# http://localhost:8090/swagger/index.html
 ```
 
 ### Estrutura do projeto
