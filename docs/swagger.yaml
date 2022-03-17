@@ -1,16 +1,61 @@
 basePath: /api/v1
+definitions:
+  models.Points:
+    properties:
+      Distance:
+        type: integer
+      X:
+        type: integer
+      "Y":
+        type: integer
+    type: object
 host: localhost:8090
 info:
   contact: {}
-  description: web api para o desafio backend
-  title: civi-backend-challange
+  description: Project for resolve the challange.
+  license:
+    name: Apache 2.0
+    url: http://www.apache.org/licenses/LICENSE-2.0.html
+  termsOfService: http://swagger.io/terms/
+  title: Civi Backend Challenge
   version: "1.0"
 paths:
-  /api/v1/points:
+  /api/v1/points/{x}:
     get:
-      description: get points
+      consumes:
+      - application/json
+      description: get points by params
+      parameters:
+      - description: x
+        in: query
+        name: x
+        required: true
+        type: integer
+      - description: "y"
+        in: query
+        name: "y"
+        required: true
+        type: integer
+      - description: distance
+        in: query
+        name: distance
+        required: true
+        type: integer
       produces:
       - application/json
-      responses: {}
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/models.Points'
+        "400":
+          description: Bad Request
+          schema:
+            type: int
       summary: Get points
+      tags:
+      - points
+securityDefinitions:
+  BasicAuth:
+    type: basic
 swagger: "2.0"

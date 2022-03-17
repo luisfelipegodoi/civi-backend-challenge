@@ -1,23 +1,91 @@
 {
     "swagger": "2.0",
     "info": {
-        "description": "web api para o desafio backend",
-        "title": "civi-backend-challange",
+        "description": "Project for resolve the challange.",
+        "title": "Civi Backend Challenge",
+        "termsOfService": "http://swagger.io/terms/",
         "contact": {},
+        "license": {
+            "name": "Apache 2.0",
+            "url": "http://www.apache.org/licenses/LICENSE-2.0.html"
+        },
         "version": "1.0"
     },
     "host": "localhost:8090",
     "basePath": "/api/v1",
     "paths": {
-        "/api/v1/points": {
+        "/api/v1/points/{x}": {
             "get": {
-                "description": "get points",
+                "description": "get points by params",
+                "consumes": [
+                    "application/json"
+                ],
                 "produces": [
                     "application/json"
                 ],
+                "tags": [
+                    "points"
+                ],
                 "summary": "Get points",
-                "responses": {}
+                "parameters": [
+                    {
+                        "type": "integer",
+                        "description": "x",
+                        "name": "x",
+                        "in": "query",
+                        "required": true
+                    },
+                    {
+                        "type": "integer",
+                        "description": "y",
+                        "name": "y",
+                        "in": "query",
+                        "required": true
+                    },
+                    {
+                        "type": "integer",
+                        "description": "distance",
+                        "name": "distance",
+                        "in": "query",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/models.Points"
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request",
+                        "schema": {
+                            "type": "int"
+                        }
+                    }
+                }
             }
+        }
+    },
+    "definitions": {
+        "models.Points": {
+            "type": "object",
+            "properties": {
+                "Distance": {
+                    "type": "integer"
+                },
+                "X": {
+                    "type": "integer"
+                },
+                "Y": {
+                    "type": "integer"
+                }
+            }
+        }
+    },
+    "securityDefinitions": {
+        "BasicAuth": {
+            "type": "basic"
         }
     }
 }
