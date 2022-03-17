@@ -10,5 +10,8 @@ run:
 deps:
 	go mod vendor
 
+swagger-docs:
+	go get -u github.com/swaggo/swag/cmd/swag@v1.6.7 && swag init --parseDependency --parseInternal -g main.go
+
 run-tests:
 	go clean -testcache && go test ./... -cover
