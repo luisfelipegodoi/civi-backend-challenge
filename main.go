@@ -1,6 +1,7 @@
 package main
 
 import (
+	_ "civi-backend-challenge/docs"
 	"civi-backend-challenge/handlers"
 	"civi-backend-challenge/models"
 	"civi-backend-challenge/routers"
@@ -21,12 +22,18 @@ func init() {
 	fmt.Println(fmt.Sprintf("initializing service on port:%s", port))
 }
 
-// @title           civi-backend-challange
+// @title           Civi Backend Challenge
 // @version         1.0
-// @description     web api para o desafio backend
+// @description     Project for resolve the challange.
+// @termsOfService  http://swagger.io/terms/
+
+// @license.name  Apache 2.0
+// @license.url   http://www.apache.org/licenses/LICENSE-2.0.html
 
 // @host      localhost:8090
 // @BasePath  /api/v1
+
+// @securityDefinitions.basic  BasicAuth
 func main() {
 	endpoint := fmt.Sprintf(":%s", port)
 

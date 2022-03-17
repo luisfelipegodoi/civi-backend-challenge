@@ -25,10 +25,16 @@ func New(s services.PointsService) *handler {
 
 // GetPoints godoc
 // @Summary      Get points
-// @Description  get points
+// @Description  get points by params
+// @Tags         points
+// @Accept       json
 // @Produce      json
-// @Params       x, y and distance
-// @Router       /api/v1/points [get]
+// @Param        x   query      int  true  "x"
+// @Param        y   query      int  true  "y"
+// @Param        distance   query      int  true  "distance"
+// @Success      200  {object}  models.Points
+// @Failure      400  {int}  http.StatusBadRequest
+// @Router       /api/v1/points/{x} [get]
 func (h *handler) GetPoints(c *gin.Context) {
 	queryParam := c.Request.URL.Query()
 
